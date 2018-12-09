@@ -1,37 +1,45 @@
-var path = require("path");
+var friends = require("../data/friends.js");
 
-var friends = require("../data/friend.js");
+module.exports = function (app) {
 
-module.exports = function(app) {
-    app.get("/api/friends", function(req, res) {
-        res.json(friendList);
+    app.get("/api/friends", function (req, res) {
+        res.json(friends);
     });
-    
-    app.post("/api/friends", function(req, res) {
-        var newFriendPoints = req.body.scores;
-        var pointsArray = [];
-        var match = 0;
 
-        for(var i=0; i<friendList.length; i++) {
-            var totalDifference = 0
+    app.post("/api/friends", function (req, res) {
 
-            for(var x=0; x<newFriendPoints.length; x++) {
-                totalDifference += (Math.abs(parseInt(friendList[i].scores[x])))
+        var bestMatch = {
+            name: "",
+            photo: "",
+            friendDifference: Infinity
+        };
+
+        var userData = req.body;
+        var userScores = userData.scores;
+        var totalDifference;
+        
+        for (var i = 0; i < friends.length; i++) {
+            var currentFriend = friends[i];
+            totalDifference = 0;
+
+            console.log(currentFriend.name);
+
+            for (var j = 0; j < currentFriend.scores.length; j++) {
+                var currentFriendScore = currentFriend.scores[j];
+                var currentUserScore = userScores[j];
+
+                totalDifference += Math.abs(parseInt(currentUserScore) - parseInt(currentFriendScore));
             }
 
-            pointsArray.push(totalDifference);
-        }
-
-        for(var i=0; i<pointsArray.length; i++) {
-            if(pointsArray[i] <= pointsArray[match]) {
-                match = i;
+            if (totalDifference <= bestMatch.friendDifference) {
+                bestMatch.name = currentFriend.name;
+                bestMatch.photo = currentFriend.photo;
+                bestMatch.friendDifference = totalDifference;
             }
         }
 
-        var bestMatch = friendList[math];
+        friends.push(userData);
 
         res.json(bestMatch);
-
-        friendList.push(req.body);
-    })
-}
+    });
+};
