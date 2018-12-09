@@ -1,7 +1,7 @@
 var friends = [
     {
-       name: "Tyler",
-       photo: "https://static01.nyt.com/images/2018/02/06/science/01TB-WHALES1/merlin_133145189_6e1ccdf8-f1fc-4eb6-a785-ed1e6bc6a7f2-superJumbo.jpg?quality=90&auto=webp",
+       name: "Heyhey",
+       photo: "https://vignette.wikia.nocookie.net/disney/images/2/27/Heihei_Moana.jpg/revision/latest/scale-to-width-down/515?cb=20170901090434",
        scores: [
            "5",
            "5",
@@ -29,7 +29,7 @@ var friends = [
     },
     {
         name: "Spongebob",
-        photo: "https://pmcvariety.files.wordpress.com/2016/05/spongebob-nickelodeon.jpg?w=1000&h=563&crop=1",
+        photo: "https://pmcwwd.files.wordpress.com/2017/06/sb_pkg13_sbob_002_ea.jpg?w=300&h=300",
         scores: [
             "4",
             "4",
@@ -43,7 +43,7 @@ var friends = [
     },
     {
         name: "Catdog",
-        photo: "https://i.redd.it/oqu6ryhbze4z.jpg",
+        photo: "https://pbs.twimg.com/profile_images/2426327790/w6comxddtn2zjru1fy9q_400x400.jpeg",
         scores: [
             "2",
             "3",
